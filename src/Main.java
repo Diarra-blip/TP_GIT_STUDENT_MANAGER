@@ -32,6 +32,13 @@ public class Main {
                     String rid = scanner.nextLine();
                     service.removeStudent(rid);
                     break;
+                case "export":
+    if (parts.length == 3 && parts[1].equals("csv")) {
+        service.exportStudentsCsv(parts[2]);
+    } else {
+        System.out.println("Usage: export csv <file_path>");
+    }
+    break;
                 default:
                     System.out.println("Unknown command.");
             }
