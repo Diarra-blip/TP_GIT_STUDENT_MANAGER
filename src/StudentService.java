@@ -41,4 +41,7 @@ public class StudentService {
         }
         return null;
     }
+    public void exportData() {
+        System.out.println("Exporting data to JSON format...");
+    }
 }
