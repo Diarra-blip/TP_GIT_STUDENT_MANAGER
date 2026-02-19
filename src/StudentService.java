@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,4 +43,15 @@ public class StudentService {
         }
         return null;
     }
+public void exportStudentsCsv(String filePath) {
+    try (FileWriter writer = new FileWriter(filePath)) {
+        writer.write("id,name\n");
+        for (Student s : students) {
+            writer.write(s.getId() + "," + s.getName() + "\n");
+        }
+        System.out.println("Exported to CSV: " + filePath);
+    } catch (IOException e) {
+        System.out.println("Error exporting CSV: " + e.getMessage());
+    }
+}
 }
